@@ -32,10 +32,23 @@ function InputBox({
             </div>
             <div className="w-1/2" flex flex-wrap justify-end text-right>
             <p className='text-black/40 mb-2 w-full'>Currency Type</p>
-            <select name="" id=""></select>
+            < select
+                className="rounded-lg px-1 py-1 bg-gray-100 cursor-pointer outline-none"
+                value={selectCurrency}
+                onChange={(e) => onCurrencyChange && onCurrencyChange(e.target.value)}
+                disabled={currencyDisable}
+            >
+                {currencyOptions.map((currency) => (
+                    <option key={currency} value={currency}>
+                    {currency}
+                    </option>
+                    ))
+                }
+
+            </select>            
             </div>
         </div>
-    )
+    );
 }
 
-export default InputBox
+export default InputBox;
